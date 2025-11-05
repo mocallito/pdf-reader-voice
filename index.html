@@ -4,13 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PDF Reader Out Loud</title>
+  <style>
+    body { font-family: sans-serif; max-width: 700px; margin: 2rem auto; line-height: 1.6; }
+    #controls button { margin-right: 10px; }
+    #output { border: 1px solid #ccc; padding: 1rem; margin-top: 1rem; white-space: pre-wrap; }
+    .highlight { background: yellow; }
+  </style>
 </head>
 <body>
   <h1>📖 PDF Reader Out Loud</h1>
+  
   <input type="file" id="fileInput" accept="application/pdf" />
-  <button id="readBtn" disabled>Read Aloud</button>
+  <div id="controls">
+    <button id="readBtn" disabled>Read Aloud</button>
+    <button id="pauseBtn" disabled>Pause</button>
+    <button id="resumeBtn" disabled>Resume</button>
+    <button id="stopBtn" disabled>Stop</button>
+  </div>
+
+  <label for="voiceSelect">Voice:</label>
+  <select id="voiceSelect"></select>
 
   <p id="status"></p>
+  <div id="output"></div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
   <script src="script.js"></script>
 </body>
